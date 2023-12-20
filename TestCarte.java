@@ -6,6 +6,14 @@ import static libtest.Lanceur.*;
 
 public class TestCarte {
 	/**
+	 * lancement des tests
+	 */
+	public static void main(String args[])
+	{
+		lancer(new TestCarte(),args);
+		
+	}
+	/**
 	 * constructeur de Carte avec parramêtre normal: entre 2 et 99.
 	 */
 	public void test_01_Contructeur(){
@@ -90,7 +98,7 @@ public class TestCarte {
 		Carte c=new Carte(50);
 		Carte c2 = new Carte(40);
 		//verification de avoirDiffDe10
-		assertEquals("la méthode doit renvoyer true", true, c.etrePlusGrand(c2));
+		assertEquals("la méthode doit renvoyer true", true, c.avoirDiffDe10(c2));
 	}
      /**
 	 * méthode avoirDiffDe10: carte en parramètre avec une différence pas égale à 10 avec this.
@@ -100,14 +108,6 @@ public class TestCarte {
 		Carte c=new Carte(50);
 		Carte c2 = new Carte(68);	
 		//verification de avoirDiffDe10
-		assertEquals("la méthode doit renvoyer false", false, c.etrePlusGrand(c2));
-	}
-	/**
-	 * lancement des tests
-	 */
-	public static void main(String args[])
-	{
-		lancer(new TestCarte(),args);
-		
+		assertEquals("la méthode doit renvoyer false", false, c.avoirDiffDe10(c2));
 	}
 }

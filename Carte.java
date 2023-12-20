@@ -17,9 +17,9 @@ public class Carte{
        *constructeur avec un parametre de type entier construisant une carte qui a pour attribut valeur, la valeur passé en parametre
        *@param v correspond à la valeur de la carte
        */
-       public Carte(int v){1+<
+       public Carte(int v){
          //on verifie que v n'excede pas 99 ou n'est pas inferieur à 2
-         v = (v>99) ? 99 : (v<2) ? 2 : v;
+         valeur = (v>99) ? 99 : (v<2) ? 2 : v;
        }
        /**
        *methode toString
@@ -44,7 +44,7 @@ public class Carte{
        */
        public boolean avoirDiffDe10(Carte c){
          //on verifie que la difference entre les deux est exactement 10 (dans un sens ou dans l'autre)
-         return (c.valeur - valeur == 10)||(valeur - c.valeur == 10) ? true : false;
+         return (c.valeur - valeur == 10)||(valeur - c.valeur == 10);
        }
 
 }

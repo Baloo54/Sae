@@ -1,78 +1,127 @@
+/**
+ * Classe PaquetCartes : 
+ * permet de représenter un paquet de cartes du jeu the game
+ */
 class PaquetCartes{
-    private Carte[] cartes;
+    /**
+     * attribut Paquet : tableau de Carte
+    */
+    private Carte[] Paquet;
+    /**
+     * constructeur vide
+     */
     public PaquetCartes(){
-        cartes = new Carte[0];
+        Paquet = new Carte[0];
     }
+    /**
+     * constructeur parametre
+     * @param tab : tableau de Carte
+     */
     public PaquetCartes(Carte[] tab){
-        cartes = tab;
+        Paquet = tab;
     }
+    /**
+     * methode getNbCartes
+     * @return int : nombre de cartes dans le paquet
+     */
     public int getNbCartes(){
-        return cartes.length;
+        return Paquet.length;
     }
+    /**
+     * methode getCarte
+     * @param indice : indice de la carte à retourner
+     * @return Carte : la carte à l'indice indice
+     */
     public Carte getCarte(int indice){
-        return cartes.length - 1 < indice || indice < 0 ? null : cartes[indice];
+        // verifier que l'indice est correct
+        return Paquet.length - 1 < indice || indice < 0 ? null : Paquet[indice];
     }
+    /**
+     * methode ajouterCarteFin
+     * @param carte : carte à ajouter à la fin du paquet
+     */
     public void ajouterCarteFin(Carte carte){
-        int taille = cartes.length;
+        int taille = Paquet.length;
         Carte[] tabTmp = new Carte[taille + 1];
         for(int i = 0; i < taille; i++){
-            tabTmp[i] = cartes[i];
+            tabTmp[i] = Paquet[i];
         }
         tabTmp[taille] = carte;
-        cartes = tabTmp;
+        Paquet = tabTmp;
     }
+    /**
+     * methode retirerCarte
+     * @param place : indice de la carte à retirer
+     * @return Carte : la carte retirée
+     */
     public Carte retirerCarte(int place){
-        if(cartes.length -1 < place || place < 0 )return null;
-        int taille = cartes.length;
+        if(Paquet.length -1 < place || place < 0 )return null;
+        int taille = Paquet.length;
         Carte carte = null ;
         Carte[] tabTmp = new Carte[taille -1];
         int j = 0;
         for(int i = 0; i < taille; i++){
-            if(i != place)tabTmp[j++] = cartes[i];
-            else carte = cartes[i];
+            if(i != place)tabTmp[j++] = Paquet[i];
+            else carte = Paquet[i];
         }
-        cartes = tabTmp;
+        Paquet = tabTmp;
         return carte;
     }
+    /**
+     * methode toString
+     * @return String : representation du paquet de cartes
+     */
     public String toString(){
         String res = "--------------------------\n";
-        for(int i = 0; i < cartes.length; i++){
-            res += i + ".  carte(" + cartes[i].getValeur() + ")\n";
+        for(int i = 0; i < Paquet.length; i++){
+            res += i + ".  carte(" + Paquet[i].getValeur() + ")\n";
         }
         return res+= "--------------------------";
     }
+    /**
+     * methode ajouterCarteDebut
+     * @param carte : carte à ajouter au debut du paquet
+     */
     public void ajouterCarteDebut(Carte carte){
-        int taille = cartes.length;
+        int taille = Paquet.length;
         Carte[] tabTmp = new Carte[taille + 1];
         tabTmp[0] = carte;
         for(int i = 0; i < taille; i++){
-            tabTmp[i+1] = cartes[i];
+            tabTmp[i+1] = Paquet[i];
         }
-        cartes = tabTmp;
+        Paquet = tabTmp;
     }
+    /**
+     * methode ajouterCarte
+     * @param c : carte à ajouter
+     * @param place : indice de la carte à ajouter
+     */
     public void ajouterCarte(Carte c, int place){
-        int taille = cartes.length;
-        int d = place + 1;
+        int taille = Paquet.length, d = place + 1;
         Carte[] tabTmp = new Carte[taille + 1];
         int j = 0;
         for (int i = 0; i < taille; i++) {
             if (i != d) {
-                tabTmp[j++] = cartes[i];
+                tabTmp[j++] = Paquet[i];
             }
             else {
                 tabTmp[j++] = c;
-                tabTmp[j++] = cartes[i];
+                tabTmp[j++] = Paquet[i];
             }
         }
-        cartes = tabTmp;
+        Paquet = tabTmp;
 
     }
-    vpublic void remplir(int max) {
+    /**
+     * methode remplir
+     * @param max : valeur max des cartes à ajouter
+     */
+    public void remplir(int max) {
         if (max >= 2) {
-          int nombreDeCartes = max - 2;
-          cartes = new Carte[nombreDeCartes];
-          for (int i = 0; i < nombreDeCartes; i++) {
-              cartes[i] = new Carte(i + 2);
+          int nombreDePaquet = max - 2;
+          Paquet = new Carte[nombreDePaquet];
+          for (int i = 0; i < nombreDePaquet; i++) {
+              Paquet[i] = new Carte(i + 2);
             }
         }
     }
