@@ -1,5 +1,5 @@
 /**
- * classe de test pour classe Carte
+ * classe de test pour classe Carte 
  */
 import static libtest.OutilTest.*;
 import static libtest.Lanceur.*;
@@ -33,7 +33,7 @@ public class TestCarte {
 		assertEquals("la Carte devrait avoir pour valeur", 99, c.getValeur());
 	}
 	/**
-	 * méthode toString: doit renvoyer une châine de carractère sous la forme c**
+	 * méthode toString: doit renvoyer une châine de carractère sous la forme c** 
 	 * où ** est la valeur de la carte.
 	 */
 	public void test_04_toString(){
@@ -43,7 +43,7 @@ public class TestCarte {
 		assertEquals("la châine renvoyer devrait être", "c50", c.toString());
 	}
 	/**
-	 * méthode etrePlusGrand: carte en paramètre strictement inférieur à this.
+	 * méthode etrePlusGrand: carte en paramètre strictement inférieur à this. 
 	 */
 	public void test_05_etrePlusGrand(){
 		//creation de la carte
@@ -53,7 +53,7 @@ public class TestCarte {
 		assertEquals("la méthode doit renvoyer true", true, c.etrePlusGrand(c2));
 	}
 	/**
-	 * méthode etrePlusGrand: carte en paramètre strictement supérieur à this.
+	 * méthode etrePlusGrand: carte en paramètre strictement supérieur à this. 
 	 */
 	public void test_06_etrePlusGrand_sup(){
 		//creation de la carte
@@ -98,8 +98,16 @@ public class TestCarte {
 	public void test_09_avoirDiffDe10_Pas_Egale_10(){
 		//creation de la carte
 		Carte c=new Carte(50);
-		Carte c2 = new Carte(68);
+		Carte c2 = new Carte(68);	
 		//verification de avoirDiffDe10
 		assertEquals("la méthode doit renvoyer false", false, c.etrePlusGrand(c2));
+	}
+	/**
+	 * lancement des tests
+	 */
+	public static void main(String args[])
+	{
+		lancer(new TestCarte(),args);
+		
 	}
 }
