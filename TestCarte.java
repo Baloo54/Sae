@@ -75,12 +75,12 @@ public class TestCarte {
 	/**
 	 * méthode avoirDiffDe10: carte en parramètre avec une différence de 10 à this.
 	 */
-	public void test_07_avoirDiffDe10(){
+	 public void test_07_avoirDiffDe10(){
 		//creation de la carte
 		Carte c=new Carte(50);
 		Carte c2 = new Carte(60);
 		//verification de avoirDiffDe10
-		assertEquals("la méthode doit renvoyer true", true, c.etrePlusGrand(c2));
+		assertEquals("la méthode doit renvoyer true", true, c.avoirDiffDe10(c2));
 	}
 	/**
 	 * méthode avoirDiffDe10: carte en parramètre avec une différence de (-10) à this.

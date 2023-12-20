@@ -43,6 +43,6 @@ public class Carte{
        *@return booleen qui verifie si la carte en parametre a une difference d'exactement 10 avec la carte this
        */
        public boolean avoirDiffDe10(Carte c){
-          return ((c.valeur - valeur) == 10) || ((valeur - c.valeur) == 10);
+         return ((c.valeur - valeur) == 10) || ((valeur - c.valeur) == 10);
        }
 }
