@@ -67,4 +67,13 @@ class PaquetCartes{
         cartes = tabTmp;
 
     }
+    vpublic void remplir(int max) {
+        if (max >= 2) {
+          int nombreDeCartes = max - 2;
+          cartes = new Carte[nombreDeCartes];
+          for (int i = 0; i < nombreDeCartes; i++) {
+              cartes[i] = new Carte(i + 2);
+            }
+        }
+    }
 }
