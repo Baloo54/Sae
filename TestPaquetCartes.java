@@ -7,7 +7,7 @@ import libtest.*;
  * classe de test qui permet de verifier que la classe Paquet
  * fonctionne correctement
  */ 
-public class TestPaquet {
+public class TestPaquetCartes {
 
 	/**
 	 * methode de lancement des tests
@@ -15,7 +15,7 @@ public class TestPaquet {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		lancer(new TestPaquet(), args);
+		lancer(new TestPaquetCartes(), args);
 	}
 
 	/**
@@ -23,7 +23,7 @@ public class TestPaquet {
 	 */
 	/*@Test*/
 	public void test1_constructeur() {
-		Paquet paquet = new Paquet();
+		PaquetCartes paquet = new PaquetCartes();
 		assertEquals("paquet devrait avoir 0 carte", 0, paquet.getNbCartes());
 	}
 
@@ -37,7 +37,7 @@ public class TestPaquet {
 		tab[1] = new Carte(2);
 		tab[2] = new Carte(3);
 					
-		Paquet paquet = new Paquet(tab);
+		PaquetCartes paquet = new PaquetCartes(tab);
 		assertEquals("paquet devrait avoir 3 cartes", 3, paquet.getNbCartes());
 	}
 
@@ -52,7 +52,7 @@ public class TestPaquet {
 		tab[1] = new Carte(2);
 		tab[2] = new Carte(3);
 					
-		Paquet paquet = new Paquet(tab);
+		PaquetCartes paquet = new PaquetCartes(tab);
 		assertEquals("paquet devrait avoir 3 cartes", 3, paquet.getNbCartes());
 
                 Carte c = paquet.getCarte(1);
@@ -69,7 +69,7 @@ public class TestPaquet {
 		tab[1] = new Carte(2);
 		tab[2] = new Carte(3);
 					
-		Paquet paquet = new Paquet(tab);
+		PaquetCartes paquet = new PaquetCartes(tab);
 		assertEquals("paquet devrait avoir 3 cartes", 3, paquet.getNbCartes());
 
                 Carte c = paquet.getCarte(3);
@@ -86,7 +86,7 @@ public class TestPaquet {
 		tab[1] = new Carte(2);
 		tab[2] = new Carte(3);
 					
-		Paquet paquet = new Paquet(tab);
+		PaquetCartes paquet = new PaquetCartes(tab);
 		paquet.ajouterCarteFin(new Carte(4));
 
 		assertEquals("paquet devrait avoir 4 cartes", 4, paquet.getNbCartes());
@@ -109,7 +109,7 @@ public class TestPaquet {
 		tab[1] = new Carte(2);
 		tab[2] = new Carte(3);
 					
-		Paquet paquet = new Paquet(tab);
+		PaquetCartes paquet = new PaquetCartes(tab);
 		Carte c = paquet.retirerCarte(1);
 		
 		// test paquet
@@ -128,7 +128,7 @@ public class TestPaquet {
 		tab[1] = new Carte(2);
 		tab[2] = new Carte(3);
 					
-		Paquet paquet = new Paquet(tab);
+		PaquetCartes paquet = new PaquetCartes(tab);
 		paquet.ajouterCarteDebut(new Carte(4));
 
 		assertEquals("paquet devrait avoir 4 cartes", 4, paquet.getNbCartes());
@@ -151,7 +151,7 @@ public class TestPaquet {
 		/*carte*/
 		tab[2] = new Carte(3);
 					
-		Paquet paquet = new Paquet(tab);
+		PaquetCartes paquet = new PaquetCartes(tab);
 		paquet.ajouterCarte(new Carte(4),1);
 
 		assertEquals("paquet devrait avoir 4 cartes", 4, paquet.getNbCartes());

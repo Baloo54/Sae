@@ -7,7 +7,7 @@ import libtest.*;
  * classe de test qui permet de verifier que la classe Paquet
  * fonctionne correctement
  */
-public class TestPaquetAjout { 
+public class TestPaquetAjoutCartes { 
 
 	/**
 	 * methode de lancement des tests
@@ -15,7 +15,7 @@ public class TestPaquetAjout {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		lancer(new TestPaquetAjout(), args);
+		lancer(new TestPaquetAjoutCartes(), args);
 	}
 
 
@@ -29,7 +29,7 @@ public class TestPaquetAjout {
 		tab[1] = new Carte(2);
 		tab[2] = new Carte(3);
 					
-		Paquet paquet = new Paquet(tab);
+		PaquetCartes paquet = new PaquetCartes(tab);
 		paquet.ajouterCarteFin(new Carte(4));
 
 		assertEquals("paquet devrait avoir 4 cartes", 4, paquet.getNbCartes());

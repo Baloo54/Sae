@@ -1,9 +1,9 @@
-class Paquet{
+class PaquetCartes{
     private Carte[] cartes;
-    public Paquet(){
+    public PaquetCartes(){
         cartes = new Carte[0];
     }
-    public Paquet(Carte[] tab){
+    public PaquetCartes(Carte[] tab){
         cartes = tab;
     }
     public int getNbCartes(){
