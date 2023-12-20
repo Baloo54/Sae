@@ -1,10 +1,10 @@
 /**
- * classe de test pour classe Carte 
+ * classe de test pour classe Carte
  */
 import static libtest.OutilTest.*;
 import static libtest.Lanceur.*;
 
-public class TestListeContigue {
+public class TestCarte {
 	/**
 	 * constructeur de Carte avec parramêtre normal: entre 2 et 99.
 	 */
@@ -33,17 +33,17 @@ public class TestListeContigue {
 		assertEquals("la Carte devrait avoir pour valeur", 99, c.getValeur());
 	}
 	/**
-	 * méthode toString: doit renvoyer une châine de carractère sous la forme c** 
+	 * méthode toString: doit renvoyer une châine de carractère sous la forme c**
 	 * où ** est la valeur de la carte.
 	 */
 	public void test_04_toString(){
 		//creation de la carte
 		Carte c=new Carte(50);
 		//verification de ToSring()
-		assertEquals("la châine renvoyer devrait être", "c50", c.ToString());
+		assertEquals("la châine renvoyer devrait être", "c50", c.toString());
 	}
 	/**
-	 * méthode etrePlusGrand: carte en paramètre strictement inférieur à this. 
+	 * méthode etrePlusGrand: carte en paramètre strictement inférieur à this.
 	 */
 	public void test_05_etrePlusGrand(){
 		//creation de la carte
@@ -53,7 +53,7 @@ public class TestListeContigue {
 		assertEquals("la méthode doit renvoyer true", true, c.etrePlusGrand(c2));
 	}
 	/**
-	 * méthode etrePlusGrand: carte en paramètre strictement supérieur à this. 
+	 * méthode etrePlusGrand: carte en paramètre strictement supérieur à this.
 	 */
 	public void test_06_etrePlusGrand_sup(){
 		//creation de la carte
