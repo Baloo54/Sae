@@ -1,5 +1,5 @@
 /**
- * Classe PaquetCartes : 
+ * Classe PaquetCartes :
  * permet de représenter un paquet de cartes du jeu the game
  */
 class PaquetCartes{
@@ -124,12 +124,22 @@ class PaquetCartes{
      * @param max : valeur max des cartes à ajouter
      */
     public void remplir(int max) {
-        if (max >= 2) {
-          int nombreDePaquet = max - 2;
-          Paquet = new Carte[nombreDePaquet];
-          for (int i = 0; i < nombreDePaquet; i++) {
-              Paquet[i] = new Carte(i + 2);
-            }
-        }
+      for (int valeur = 2; valeur < max-1; valeur++) {
+          ajouterCarteFin(new Carte(valeur));
+      }
     }
+    public PaquetCartes(int[] tab){
+      int taille = tab.length;
+      Carte[] tableau = new Carte[taille];
+      for(int i = 0; i < taille; i++){
+        tableau[i] = tab[i];
+      }
+    }
+      public Carte getDerniereCarte() {
+        return Paquet.getCarte(Paquet.length - 1);
+    }
+      public boolean etreVide(){
+        if 
+        return
+      }
 }
