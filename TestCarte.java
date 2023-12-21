@@ -16,6 +16,7 @@ public class TestCarte {
 	/**
 	 * constructeur de Carte avec parramêtre normal: entre 2 et 99.
 	 */
+	/*@Test*/
 	public void test_01_Contructeur(){
 		//creation de la carte
 		Carte c=new Carte(50);
@@ -25,6 +26,7 @@ public class TestCarte {
 	/**
 	 * constructeur de Carte avec parramêtre inférieur à 2.
 	 */
+	/*@Test*/
 	public void test_02_Contructeur_inf(){
 		//creation de la carte
 		Carte c=new Carte(-10);
@@ -34,6 +36,7 @@ public class TestCarte {
 	/**
 	 * constructeur de Carte avec parramêtre supérieur à 99.
 	 */
+	/*@Test*/
 	public void test_03_Contructeur_sup(){
 		//creation de la carte
 		Carte c=new Carte(103);
@@ -44,6 +47,7 @@ public class TestCarte {
 	 * méthode toString: doit renvoyer une châine de carractère sous la forme c** 
 	 * où ** est la valeur de la carte.
 	 */
+	/*@Test*/
 	public void test_04_toString(){
 		//creation de la carte
 		Carte c=new Carte(50);
@@ -53,6 +57,7 @@ public class TestCarte {
 	/**
 	 * méthode etrePlusGrand: carte en paramètre strictement inférieur à this. 
 	 */
+	/*@Test*/
 	public void test_05_etrePlusGrand(){
 		//creation de la carte
 		Carte c=new Carte(50);
@@ -63,6 +68,7 @@ public class TestCarte {
 	/**
 	 * méthode etrePlusGrand: carte en paramètre strictement supérieur à this. 
 	 */
+	/*@Test*/
 	public void test_06_etrePlusGrand_sup(){
 		//creation de la carte
 		Carte c=new Carte(50);
@@ -73,6 +79,7 @@ public class TestCarte {
 	/**
 	 * méthode etrePlusGrand: carte en paramètre égale à this.
 	 */
+	/*@Test*/
 	public void test_06_etrePlusGrand_egale(){
 		//creation de la carte
 		Carte c=new Carte(50);
@@ -83,6 +90,7 @@ public class TestCarte {
 	/**
 	 * méthode avoirDiffDe10: carte en parramètre avec une différence de 10 à this.
 	 */
+	/*@Test*/
 	 public void test_07_avoirDiffDe10(){
 		//creation de la carte
 		Carte c=new Carte(50);
@@ -93,6 +101,7 @@ public class TestCarte {
 	/**
 	 * méthode avoirDiffDe10: carte en parramètre avec une différence de (-10) à this.
 	 */
+	/*@Test*/
 	public void test_08_avoirDiffDe10_Moins10(){
 		//creation de la carte
 		Carte c=new Carte(50);
@@ -103,6 +112,7 @@ public class TestCarte {
      /**
 	 * méthode avoirDiffDe10: carte en parramètre avec une différence pas égale à 10 avec this.
 	 */
+	/*@Test*/
 	public void test_09_avoirDiffDe10_Pas_Egale_10(){
 		//creation de la carte
 		Carte c=new Carte(50);
