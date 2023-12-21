@@ -1,3 +1,4 @@
+java.util.random
 /**
  * Classe PaquetCartes :
  * permet de représenter un paquet de cartes du jeu the game
@@ -132,7 +133,7 @@ class PaquetCartes{
         return Paquet.getCarte(Paquet.length - 1);
     }
       public boolean etreVide(){
-        if 
-        return
+        return Paquet.length == 0 ? true : false;
       }
+
 }
