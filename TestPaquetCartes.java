@@ -164,7 +164,7 @@ public class TestPaquetCartes {
 		assertEquals("paquet devrait avoir 3 cartes", 3, paquet.getNbCartes());
 		assertEquals("premiere carte valeur 1", 2, paquet.getCarte(0).getValeur());
 		assertEquals("seconde carte valeur 3", 3, paquet.getCarte(1).getValeur());
-		assertEquals("seconde carte valeur 4", 4, paquet.getCarte(2).getValeur());
+		assertEquals("troisième carte valeur 4", 4, paquet.getCarte(2).getValeur());
 			
 		// test carte retournee
 		assertEquals("carte retiree a pour valeur null", null, c);
@@ -186,26 +186,10 @@ public class TestPaquetCartes {
 		assertEquals("paquet devrait avoir 3 cartes", 3, paquet.getNbCartes());
 		assertEquals("premiere carte valeur 1", 2, paquet.getCarte(0).getValeur());
 		assertEquals("seconde carte valeur 3", 3, paquet.getCarte(1).getValeur());
-		assertEquals("seconde carte valeur 4", 4, paquet.getCarte(2).getValeur());
+		assertEquals("troisième carte valeur 4", 4, paquet.getCarte(2).getValeur());
 			
 		// test carte retournee
 		assertEquals("carte retiree a pour valeur null", null, c);
-	}
-	/**
-	 * test toString
-	 */
-	/*@Test*/
-	public void test11_toString() {
-		Carte[] tab = new Carte[3];
-		tab[0] = new Carte(2);
-		tab[1] = new Carte(3);
-		tab[2] = new Carte(4);
-					
-		PaquetCartes paquet = new PaquetCartes(tab);
-		String s = paquet.toString();
-		assertEquals("paquet devrait avoir 3 cartes", 3, paquet.getNbCartes());
-		assertEquals("la chaîne retournée devrait être:",
-		"\n:--------------------------\n0.  carte(2)\n1.  carte(3)\n2.  carte(4)\n--------------------------", s);
 	}
 	/**
 	 * test ajoutCarteDebut ok avec la methode ajouterCarteDebut
@@ -281,7 +265,7 @@ public class TestPaquetCartes {
 	public void test15_ajouterCarteNull() {
 		Carte[] tab = new Carte[3];
 		tab[0] = new Carte(2);
-		tab[1] = null;
+		tab[1] = new Carte(3);
 		tab[2] = new Carte(4);
 					
 		PaquetCartes paquet = new PaquetCartes(tab);
@@ -293,7 +277,7 @@ public class TestPaquetCartes {
 		Carte c = paquet.getCarte(2);
 		assertEquals("la carte "+0+" a pour valeur "+(2), 2, a.getValeur());		
 		assertEquals("la carte "+1+" a pour valeur "+(4), 4, c.getValeur());		
-		assertEquals("la carte "+2+" a pour valeur "+(null), null, b);		
+		assertEquals("la carte "+2+" a pour valeur "+(3), 3, b.getValeur());		
 	}
 	/**
 	 * test ajouterCarte hors tableau: indice supérieur au nombre de carte
@@ -302,9 +286,10 @@ public class TestPaquetCartes {
 	public void test16_ajouterCarteHorsTableau_sup() {
 		Carte[] tab = new Carte[3];
 		tab[0] = new Carte(2);
-		tab[1] = null;
+		tab[1] = new Carte(3);
 		tab[2] = new Carte(4);
-					
+	   /*@Test*/
+	   
 		PaquetCartes paquet = new PaquetCartes(tab);
 		paquet.ajouterCarte(new Carte(5),3);
 
@@ -313,7 +298,7 @@ public class TestPaquetCartes {
 		Carte b = paquet.getCarte(1);
 		Carte c = paquet.getCarte(2);
 		assertEquals("la carte "+0+" a pour valeur "+(2), 2, a.getValeur());		
-		assertEquals("la carte "+1+" a pour valeur "+(null), null, b);		
+		assertEquals("la carte "+1+" a pour valeur "+(3), 3, b.getValeur());		
 		assertEquals("la carte "+2+" a pour valeur "+(4), 4, c.getValeur());		
 	}
 	/**
@@ -323,7 +308,7 @@ public class TestPaquetCartes {
 	public void test17_ajouterCarteHorsTableau_inf() {
 		Carte[] tab = new Carte[3];
 		tab[0] = new Carte(2);
-		tab[1] = null;
+		tab[1] = new Carte(3);
 		tab[2] = new Carte(4);
 					
 		PaquetCartes paquet = new PaquetCartes(tab);
@@ -334,12 +319,27 @@ public class TestPaquetCartes {
 		Carte b = paquet.getCarte(1);
 		Carte c = paquet.getCarte(2);
 		assertEquals("la carte "+0+" a pour valeur "+(2), 2, a.getValeur());		
-		assertEquals("la carte "+1+" a pour valeur "+(null), null, b);		
+		assertEquals("la carte "+1+" a pour valeur "+(3), 3, b.getValeur());		
 		assertEquals("la carte "+2+" a pour valeur "+(4), 4, c.getValeur());		
 	}
 	/**
-	 * test remplir ok
+	 * test constructeur avec un tableau contenanr une carte null
 	 */
 	/*@Test*/
-	
+	public void test18_constructeurParamNull() {
+		Carte[] tab = new Carte[3];
+		tab[0] = new Carte(2);
+		tab[1] = null;
+		tab[2] = new Carte(4);
+					
+		PaquetCartes paquet = new PaquetCartes(tab);
+		assertEquals("paquet devrait avoir 2 cartes", 2, paquet.getNbCartes());
+		Carte a = paquet.getCarte(0);
+		Carte b = paquet.getCarte(1);
+		assertEquals("la carte "+0+" a pour valeur "+(2), 2, a.getValeur());		
+		assertEquals("la carte "+1+" a pour valeur "+(4), 4, b.getValeur());		
+	}
+	/**
+	 * 
+	 */
 }
