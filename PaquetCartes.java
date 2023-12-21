@@ -130,16 +130,12 @@ class PaquetCartes{
     }
     public PaquetCartes(int[] tab){
       int taille = tab.length;
-      Carte[] tableau = new Carte[taille];
+      Paquet = new Carte[taille];
       for(int i = 0; i < taille; i++){
-        tableau[i] = tab[i];
+        Paquet[i] = new Carte(tab[i]);
       }
     }
       public Carte getDerniereCarte() {
-        return Paquet.getCarte(Paquet.length - 1);
+        return Paquet[Paquet.length - 1];
     }
-      public boolean etreVide(){
-        if 
-        return
-      }
 }
