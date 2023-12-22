@@ -59,7 +59,7 @@ public class PileCartes{
      * permet d'afficher la pile sous la forme "c-c**-(*)" où c** est la carte visible et (*) est le nombre de cartes dans la pile 
      */
     public String toString(){
-        return paquet.getDerniereCarte().toString() + "**-(" + paquet.getNbCartes() + ")";
+        return croissant ? "c-" : "d-" + paquet.getDerniereCarte().toString() + "-(" + paquet.getNbCartes() + ")";
     }
     /**
      * methodes getters
