@@ -25,9 +25,9 @@ public static void main(String args[])
         PileCartes pile = new PileCartes(false, -100);
         assertEquals("la valeur max, étant incorrecte, elle doit renvoyer 100", 100, pile.getPaquet().getDerniereCarte().getValeur());
     }
-    public void test_4_testPileOk(){
-        PileCartes pile = new PileCartes(true,20);
-        assertEquals("le constructeur doit creer une pile de 20 cartes", 20, pile.getPaquet());
+    public void test_4_testPileOk() {
+        PileCartes pile = new PileCartes(true, 20);
+        assertEquals("le constructeur doit creer une pile avec une seule carte initiale", 1, pile.getPaquet().getNbCartes());
     }
     
         // question 5.2
@@ -44,9 +44,8 @@ public static void main(String args[])
     }
     public void test_7_testToStringOK(){
         PileCartes pile = new PileCartes(true, 50);        
-        Carte carte = new Carte(15);
-        pile.getPaquet().ajouterCarteDebut(carte);
-        assertEquals("La représentation toString d'une pile croissante avec une seule carte n'est pas correcte","c-c15-(1)",pile.toString());
+        pile.getPaquet().ajouterCarteFin(new Carte(15));
+        assertEquals("La représentation toString d'une pile croissante avec une seule carte n'est pas correcte","c-c15-(2)",pile.toString());
 }
 }
 
