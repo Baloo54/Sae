@@ -39,7 +39,9 @@ public class PileCartes{
      */
     public boolean etrePosable(Carte c){
         // si c'est croissant on verifie que la carte est plus grande que la derniere sinon on verifie qu'elle est plus petite
-        return croissant ? c.getValeur() > paquet.getDerniereCarte().getValeur() : c.getValeur() < paquet.getDerniereCarte().getValeur();
+        int valeur = c.getValeur();
+        int derniereValeur = paquet.getDerniereCarte().getValeur();
+        return c.avoirDiffDe10(paquet.getDerniereCarte())? true : croissant ? (valeur > derniereValeur) : (valeur < derniereValeur);
     }
     /**
      * méthode poserCarte

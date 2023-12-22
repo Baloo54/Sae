@@ -43,7 +43,8 @@ public static void main(String args[])
         assertEquals("La methode poserCarte ne fonctionne pas", true, res2);
     }
     public void test_7_testToStringOK(){
-        PileCartes pile = new PileCartes(true, 50);        Carte carte = new Carte(15);
+        PileCartes pile = new PileCartes(true, 50);        
+        Carte carte = new Carte(15);
         pile.getPaquet().ajouterCarteDebut(carte);
         assertEquals("La représentation toString d'une pile croissante avec une seule carte n'est pas correcte","c-c15-(1)",pile.toString());
 }

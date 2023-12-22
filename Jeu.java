@@ -40,6 +40,32 @@ public class Jeu {
         }
     }
     /**
+     * Constructeur avec un paquet de carte
+     * @param p PaquetCartes : paquet de cartes
+     * permet de creer un paquet de cartes avec un paquet de cartes
+     */
+    public Jeu(PaquetCartes p) {
+        // on verifie que le paquet n'est pas null sinon on le cree
+        if(p != null){
+            pioche = p;
+        }
+        else{
+            pioche = new PaquetCartes();
+            pioche.remplir(100);
+        }
+        // on cree les 4 piles dont les 2 premieres sont croissantes et les 2 dernieres decroissantes
+        piles = new PileCartes[4];
+        piles[0] = new PileCartes(true,p.getNbCartes());
+        piles[1] = new PileCartes(true,p.getNbCartes());
+        piles[2] = new PileCartes(false,p.getNbCartes());
+        piles[3] = new PileCartes(false,p.getNbCartes());
+        // on cree la main du joueur avec 8 cartes triees
+        main = new PaquetCartes();
+        for (int i = 0; i < 8; i++) {
+            main.insererTri((pioche.retirerCarte(pioche.getNbCartes() - 1)));
+        }
+    }
+    /**
      * methode toString
      * @return String : chaine de caractere representant le jeu
      * permet d'afficher le jeu sous la forme:
@@ -68,4 +94,21 @@ public class Jeu {
         result += "################################################\n";
         return result;
     }
+    /**
+     * methode jouerCarte
+     * @param  indice int : numéro de la carte à jouer
+     * @param numPile int : numéro de la pile sur laquelle on veut jouer
+     * @return boolean : true si la carte a été jouée, false sinon
+     * permet de jouer une carte sur une pile si elle est posable
+     */
+    public boolean jouerCarte(int indice, int numPile) {
+        boolean joue = false;
+        // on verifie que la carte est posable sur la pile et on la pose
+        if (piles[numPile].etrePosable(main.getCarte(indice))) {
+            joue = true;
+            piles[numPile].poserCarte(main.retirerCarte(indice));
+        }
+        return joue;
+    }
+    
 }
