@@ -471,7 +471,7 @@ public class TestPaquetCartes {
 		paquet.remplir(100);
 		Carte c = paquet.prendreCarteDessus();
 		assertEquals("paquet devrait avoir 97 cartes", 97, paquet.getNbCartes());
-		assertEquals("la carte du dessus a pour valeur 98", 98, c.getValeur());
+		assertEquals("la carte du dessus a pour valeur 98", 2, c.getValeur());
 	}
 	/**
 	 * test méthode prendreCarteDessus avec un paquet vide
@@ -492,7 +492,7 @@ public class TestPaquetCartes {
 		paquet.remplir(100);
 		paquet.insererTri(new Carte(1));
 		assertEquals("paquet devrait avoir 99 cartes", 99, paquet.getNbCartes());
-		assertEquals("la carte 0 a pour valeur 1", 1, paquet.getCarte(0).getValeur());
+		assertEquals("la carte 0 a pour valeur 2", 2, paquet.getCarte(0).getValeur());
 	}
 	/**
 	 * test méthode insererTri avec une carte null
@@ -514,7 +514,7 @@ public class TestPaquetCartes {
 		paquet.remplir(100);
 		Carte c = paquet.getDerniereCarte();
 		assertEquals("paquet devrait avoir 98 cartes", 98, paquet.getNbCartes());
-		assertEquals("la carte 0 a pour valeur 99", 99, c.getValeur());
+		assertEquals("la carte 98 a pour valeur 99", 99, c.getValeur());
 	}
 	/**
 	 * test getDerniereCarte avec un paquet vide

@@ -67,7 +67,7 @@ class PaquetCartes{
     public String toString(){
         String res = "Le paquet est vide";
         if (Paquet.length != 0){
-            res += "--------------------------\n";
+            res = "--------------------------\n";
             for(int i = 0; i < Paquet.length; i++){
                 res += i + " -c" + Paquet[i].getValeur() + " ";
             }
@@ -159,7 +159,7 @@ class PaquetCartes{
     public void remplir(int max) {
         // verifier que max est correct
         if (max > 2) {
-            Carte[] tabTmp = new Carte[max-1];
+            Carte[] tabTmp = new Carte[max-2];
             for (int valeur = 2; valeur < max; valeur++) {
                 tabTmp[valeur-2] = new Carte(valeur);
             }
@@ -243,7 +243,7 @@ class PaquetCartes{
      */
     public Carte getDerniereCarte() {
         Carte carte = null;
-        if (Paquet != null) carte = Paquet[Paquet.length - 1];
+        if (Paquet != null && !etreVide()) carte = Paquet[Paquet.length - 1];
         return carte;
     }
      /**
