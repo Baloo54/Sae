@@ -46,5 +46,14 @@ public class Carte{
          //on verifie que la difference entre les deux est exactement 10 (dans un sens ou dans l'autre)
          return (c.valeur - valeur == 10)||(valeur - c.valeur == 10);
        }
+       /**
+        *methode SetCarte
+        *@param value nouvelle valeur à modifier
+        *permet de passer à travers les règles de verification superieure à 99 et inferieur à 1
+        */
+       public void setCarte(int value){
+          //verifie que value soit uniquement à 1 ou à 100
+          valeur = value == 100 || value == 1 ? value : valeur;
+       }
 
 }

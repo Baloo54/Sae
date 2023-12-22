@@ -510,7 +510,7 @@ public class TestPaquetCartes {
 	 */
 	/*@Test*/
 	public void test34_getDerniereCarte() {
-		PaquetCartes paquet = new PaquetCartes();
+		PaquetCartes paquet = new PaquetCartes(); 
 		paquet.remplir(100);
 		Carte c = paquet.getDerniereCarte();
 		assertEquals("paquet devrait avoir 98 cartes", 98, paquet.getNbCartes());

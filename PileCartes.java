@@ -21,12 +21,15 @@ public class PileCartes{
      * par ex: 1 si c'est croissant et 100 si c'est decroissant
      */
     public PileCartes(boolean pCroissant, int max){
-        //verifie si max est valide sinon on le met a 100 et qie croissant est valide sinon on le met a true
+        //verifie si max est valide sinon on le met a 100.
         max = max > 0 ? max : 100;  
-        croissant = pCroissant ? pCroissant : true;
+        croissant = pCroissant;
         Carte[] cartes = new Carte[max];
         paquet = new PaquetCartes(cartes);
-        paquet.ajouterCarte(new Carte(croissant ? 1 : max), 0);
+        // carte passer à travers les règles de cartes sup à 1 ou inf à 100.
+        Carte c = new Carte(5);
+        c.setCarte(croissant ? 1 : max);
+        paquet.ajouterCarteDebut(c);
     }
     /**
      * méthode etrePosable
