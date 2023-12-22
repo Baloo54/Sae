@@ -340,6 +340,207 @@ public class TestPaquetCartes {
 		assertEquals("la carte "+1+" a pour valeur "+(4), 4, b.getValeur());		
 	}
 	/**
-	 * 
+	 *  test constructeur avec un tableau int vide
 	 */
+	/*@Test*/
+	public void test19_constructeurParamVide() {
+		Carte[] tab = new Carte[0];
+					
+		PaquetCartes paquet = new PaquetCartes(tab);
+		assertEquals("paquet devrait avoir 0 cartes", 0, paquet.getNbCartes());
+	}
+	/**
+	 * test constructeur avec un tableau int contenant une carte null
+	 */
+	/*@Test*/
+	public void test20_constructeurParamVideNull() {
+		Carte[] tab = new Carte[1];
+		tab[0] = null;
+					
+		PaquetCartes paquet = new PaquetCartes(tab);
+		assertEquals("paquet devrait avoir 0 cartes", 0, paquet.getNbCartes());
+	}
+	/**
+	 * test méthode toString
+	 */
+	/*@Test*/
+	public void test21_toString() {
+		Carte[] tab = new Carte[3];
+		tab[0] = new Carte(2);
+		tab[1] = new Carte(3);
+		tab[2] = new Carte(4);
+					
+		PaquetCartes paquet = new PaquetCartes(tab);
+		String s = paquet.toString();
+		assertEquals("paquet devrait avoir 3 cartes", 3, paquet.getNbCartes());
+		assertEquals("paquet devrait avoir 3 cartes", "--------------------------\n0 -c2 1 -c3 2 -c4 --------------------------", s);
+	}
+	/**
+	 * test méthode toString avec un paquet vide
+	 */
+	/*@Test*/
+	public void test22_toStringVide() {
+		Carte[] tab = new Carte[0];
+					
+		PaquetCartes paquet = new PaquetCartes(tab);
+		String s = paquet.toString();
+		assertEquals("paquet devrait avoir 0 cartes", 0, paquet.getNbCartes());
+		assertEquals("paquet devrait avoir 0 cartes", "Le paquet est vide", s);
+	}
+	/**
+	 * test méthode remplir
+	 */
+	/*@Test*/
+	public void test23_remplir() {
+		PaquetCartes paquet = new PaquetCartes();
+		paquet.remplir(100);
+		assertEquals("paquet devrait avoir 98 cartes", 98, paquet.getNbCartes());
+	}
+	/**
+	 * test méthode remplir avec max < 2
+	 */
+	/*@Test*/
+	public void test24_remplirMaxInf2() {
+		PaquetCartes paquet = new PaquetCartes();
+		paquet.remplir(1);
+		assertEquals("paquet devrait avoir 0 cartes", 0, paquet.getNbCartes());
+	}
+	/**
+	 * test méthode remplir avec max > 99
+	 */
+	/*@Test*/
+	public void test25_remplirMaxSup99() {
+		PaquetCartes paquet = new PaquetCartes();
+		paquet.remplir(100);
+		assertEquals("paquet devrait avoir 98 cartes", 98, paquet.getNbCartes());
+	}
+	/**
+	 * test méthode remplir avec max = 2
+	 */
+	/*@Test*/
+	public void test26_remplirMax2() {
+		PaquetCartes paquet = new PaquetCartes();
+		paquet.remplir(2);
+		assertEquals("paquet devrait avoir 0 cartes", 0, paquet.getNbCartes());
+	}
+	/**
+	 * test méthode etreVide
+	 */
+	/*@Test*/
+	public void test27_etreVide() {
+		PaquetCartes paquet = new PaquetCartes();
+		assertEquals("paquet devrait avoir 0 cartes", 0, paquet.getNbCartes());
+		assertEquals("paquet devrait etre vide", true, paquet.etreVide());
+	}
+	/**
+	 * test méthode etreVide avec un paquet non vide
+	 */
+	/*@Test*/
+	public void test28_etreVideNonVide() {
+		PaquetCartes paquet = new PaquetCartes();
+		paquet.remplir(100);
+		assertEquals("paquet devrait avoir 98 cartes", 98, paquet.getNbCartes());
+		assertEquals("paquet ne devrait pas etre vide", false, paquet.etreVide());
+	}
+	/**
+	 * test méthode melanger en comparant le paquet avant et après mélange
+	 */
+	/*@Test*/
+	public void test29_melanger() {
+		PaquetCartes paquet = new PaquetCartes();
+		paquet.remplir(100);
+		PaquetCartes paquet2 = new PaquetCartes();
+		paquet2.remplir(100);
+		paquet2.melangerPaquet();
+		assertEquals("paquet devrait avoir 98 cartes", 98, paquet.getNbCartes());
+		assertEquals("paquet devrait avoir 98 cartes", 98, paquet2.getNbCartes());
+		boolean b = true;
+		for (int i=0;i<98;i++) {
+			if (paquet.getCarte(i).getValeur() != paquet2.getCarte(i).getValeur()) {
+				b = false;
+			}
+		}
+		assertEquals("paquet devrait etre melange", false, b);
+	}
+	/**
+	 * test méthode prendreCarteDessus
+	 */
+	/*@Test*/
+	public void test30_prendreCarteDessus() {
+		PaquetCartes paquet = new PaquetCartes();
+		paquet.remplir(100);
+		Carte c = paquet.prendreCarteDessus();
+		assertEquals("paquet devrait avoir 97 cartes", 97, paquet.getNbCartes());
+		assertEquals("la carte du dessus a pour valeur 98", 98, c.getValeur());
+	}
+	/**
+	 * test méthode prendreCarteDessus avec un paquet vide
+	 */
+	/*@Test*/
+	public void test31_prendreCarteDessusVide() {
+		PaquetCartes paquet = new PaquetCartes();
+		Carte c = paquet.prendreCarteDessus();
+		assertEquals("paquet devrait avoir 0 cartes", 0, paquet.getNbCartes());
+		assertEquals("la carte du dessus a pour valeur null", null, c);
+	}
+	/**
+	 * test méthode insererTri
+	 */
+	/*@Test*/
+	public void test32_insererTri() {
+		PaquetCartes paquet = new PaquetCartes();
+		paquet.remplir(100);
+		paquet.insererTri(new Carte(1));
+		assertEquals("paquet devrait avoir 99 cartes", 99, paquet.getNbCartes());
+		assertEquals("la carte 0 a pour valeur 1", 1, paquet.getCarte(0).getValeur());
+	}
+	/**
+	 * test méthode insererTri avec une carte null
+	 */
+	/*@Test*/
+	public void test33_insererTriNull() {
+		PaquetCartes paquet = new PaquetCartes();
+		paquet.remplir(100);
+		paquet.insererTri(null);
+		assertEquals("paquet devrait avoir 98 cartes", 98, paquet.getNbCartes());
+		assertEquals("la carte 0 a pour valeur 2", 2, paquet.getCarte(0).getValeur());
+	}
+	/**
+	 * test getDerniereCarte
+	 */
+	/*@Test*/
+	public void test34_getDerniereCarte() {
+		PaquetCartes paquet = new PaquetCartes();
+		paquet.remplir(100);
+		Carte c = paquet.getDerniereCarte();
+		assertEquals("paquet devrait avoir 98 cartes", 98, paquet.getNbCartes());
+		assertEquals("la carte 0 a pour valeur 99", 99, c.getValeur());
+	}
+	/**
+	 * test getDerniereCarte avec un paquet vide
+	 */
+	/*@Test*/
+	public void test35_getDerniereCarteVide() {
+		PaquetCartes paquet = new PaquetCartes();
+		Carte c = paquet.getDerniereCarte();
+		assertEquals("paquet devrait avoir 0 cartes", 0, paquet.getNbCartes());
+		assertEquals("la carte 0 a pour valeur null", null, c);
+	}
+	/**
+	 * test getNbCartes
+	 */
+	/*@Test*/
+	public void test36_getNbCartes() {
+		PaquetCartes paquet = new PaquetCartes();
+		paquet.remplir(100);
+		assertEquals("paquet devrait avoir 98 cartes", 98, paquet.getNbCartes());
+	}
+	/**
+	 * test getNbCartes avec un paquet vide
+	 */
+	/*@Test*/
+	public void test37_getNbCartesVide() {
+		PaquetCartes paquet = new PaquetCartes();
+		assertEquals("paquet devrait avoir 0 cartes", 0, paquet.getNbCartes());
+	}
 }

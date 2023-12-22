@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * Classe PaquetCartes :
  * permet de représenter un paquet de cartes du jeu the game
@@ -63,11 +65,15 @@ class PaquetCartes{
      * @return String : representation du paquet de cartes
      */
     public String toString(){
-        String res = "--------------------------\n";
-        for(int i = 0; i < Paquet.length; i++){
-            res += i + ".  carte(" + Paquet[i].getValeur() + ")\n";
+        String res = "Le paquet est vide";
+        if (Paquet.length != 0){
+            res += "--------------------------\n";
+            for(int i = 0; i < Paquet.length; i++){
+                res += i + " -c" + Paquet[i].getValeur() + " ";
+            }
+            res+= "--------------------------";
         }
-        return res+= "--------------------------";
+        return res;
     }
     /**
      * methode retirerCarte
@@ -169,12 +175,76 @@ class PaquetCartes{
         return Paquet.length == 0 ? true : false;
     }
     /**
+     * methode piocherHasard
+     * permet de piocher une carte au hasard dans le paquet
+     * @return Carte : la carte piochée
+     */
+    private Carte piocherHasard() {
+            Carte result = null;
+            if (!etreVide()) {
+                Random aleatoire = new Random();
+                int index = aleatoire.nextInt(Paquet.length);
+                result = retirerCarte(index);
+            }
+            return result;
+    }
+    /**
+     * methode melangerPaquet
+     * permet de melanger le paquet de cartes
+     */
+    public void melangerPaquet(){
+        Carte[] tabTmp = new Carte[Paquet.length];
+        int i = 0;
+        while (!etreVide()){
+          tabTmp[i] = piocherHasard();
+          i++;
+        }
+        Paquet = tabTmp;
+      }
+      /**
+       * methode prendreCarteDessus
+       * permet de prendre la carte du dessus du paquet
+       * @return Carte : la carte du dessus du paquet
+       */
+      public Carte prendreCarteDessus() {
+        Carte res = null;
+        if (!etreVide()) {
+            res = retirerCarte(0); 
+        }
+        return res; 
+    }
+    /**
+     * méthode insererTri 
+     * permet d'insérer une carte dans le paquet trié
+     * @param c : carte à insérer
+     */
+    public void insererTri(Carte c) {
+        // verifier que la carte n'est pas null
+        if (c != null) {
+            int taille = Paquet.length;
+            Carte[] tabTmp = new Carte[taille + 1];
+            int i = 0, j = 0;
+            while (i < taille && Paquet[i].getValeur() < c.getValeur()) {
+                tabTmp[i] = Paquet[i];
+                i++;
+            }
+            tabTmp[i++] = c;
+            while (i < taille + 1) {
+                tabTmp[i] = Paquet[j++];
+                i++;
+            }
+            Paquet = tabTmp;
+            }
+    }
+    /**
      * methode getDerniereCarte 
      * permet de retourner la derniere carte du paquet
      * @return Carte : derniere carte du paquet
      */
     public Carte getDerniereCarte() {
-        return Paquet[Paquet.length - 1];
+        Carte carte = null;
+        if (Paquet != null) carte = Paquet[Paquet.length - 1];
+        return carte;
     }
      /**
      * methode getNbCartes
@@ -182,7 +252,9 @@ class PaquetCartes{
      * @return int : nombre de cartes dans le paquet
      */
     public int getNbCartes(){
-        return Paquet.length;
+        int res = 0;
+        if (Paquet != null) res = Paquet.length;
+        return res;
     }
     /**
      * methode getCarte
